@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sweet Time Together 🍯</title>
+    <link rel="stylesheet" href="timespent.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="honeycomb hc-1">⬢</div>
+    <div class="honeycomb hc-2">⬢</div>
+    <div class="honeycomb hc-3">⬢</div>
+    <div class="float-bee">🐝✨</div>
+
+    <div class="honey-page-container">
+        
+        <header class="honey-header">
+            <h1>Our Love Timeline 💛</h1>
+            <p>Every sweet second since May 17th...</p>
+        </header>
+
+        <div class="beehive-box">
+            <div class="honey-drip"></div>
+            
+            <div class="anniversary-badge">
+                <span>Since May 17th 🍯</span>
+            </div>
+
+            <div class="counter-grid">
+                <div class="counter-card">
+                    <span id="days" class="time-num">00</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="counter-card">
+                    <span id="hours" class="time-num">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="counter-card">
+                    <span id="minutes" class="time-num">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="counter-card">
+                    <span id="seconds" class="time-num">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+
+            <div class="beehive-footer">
+                <p>"You are the sweetest honey in my hive." 🐝</p>
+            </div>
+        </div>
+
+        <a href="home.html" class="back-garden-btn">← Back to our Tulip Garden</a>
+
+    </div>
+
+    
+        <script>
+        // Set the precise confession date: May 17, 2026
+        // Note: JavaScript months are 0-indexed, so May is 4 (Jan=0, Feb=1, Mar=2, Apr=3, May=4)
+        const confessionDate = new Date(2026, 4, 17, 0, 0, 0); 
+
+        function calculateTimeTogether() {
+            const now = new Date();
+            const difference = now - confessionDate;
+
+            // Math conversions to break the millisecond difference into time units
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Inject the calculated numbers into the HTML cards with clean padding zeroes
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        // Keep the counter ticking seamlessly every single second
+        setInterval(calculateTimeTogether, 1000);
+        calculateTimeTogether(); // Run instantly when the page loads
+    </script>
+    </body>
+    </html>

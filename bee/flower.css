@@ -1,0 +1,448 @@
+/* --- Base Styling --- */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFF9F2; /* Cream pastel soft base */
+    font-family: 'Fredoka', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Layout Grid --- */
+.main-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 340px;
+    width: 100%;
+    max-width: 1300px;
+    gap: 30px;
+    align-items: center;
+    z-index: 10;
+}
+
+/* --- Header Typography --- */
+#main-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#main-header h1 {
+    font-size: 28px;
+    color: #3a7ca5;
+    text-shadow: 2px 2px 0px #fff;
+    margin-bottom: 10px;
+}
+
+.time-link {
+    font-size: 14px;
+    color: #ff8fa3;
+    text-decoration: none;
+    background: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 2px dashed #ffb3c1;
+    transition: 0.2s;
+}
+.time-link:hover {
+    transform: scale(1.05);
+    background: #ffb3c1;
+    color: white;
+}
+
+/* --- LEFT: Photobooth Strip --- */
+.photobooth-strip {
+    background: #fff;
+    padding: 16px 16px 24px 16px;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(165, 42, 42, 0.08);
+    transform: rotate(-3deg);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    border: 1px solid #f0e6df;
+}
+
+.washi-tape {
+    position: absolute;
+    top: -18px;
+    left: 30%;
+    width: 90px;
+    height: 28px;
+    background: rgba(255, 143, 163, 0.4);
+    transform: rotate(4deg);
+    border-left: 3px dashed #fff;
+    border-right: 3px dashed #fff;
+}
+
+.photo-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f7f7f7;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.strip-footer {
+    text-align: center;
+    color: #555;
+}
+.strip-footer p { font-size: 16px; font-weight: 600; color: #ff8fa3;}
+.strip-footer span { font-size: 12px; color: #999; }
+
+/* --- CENTER: Pure CSS Jars & Glowing Blue Tulips --- */
+.jars-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 40px;
+    height: 400px;
+}
+
+.mason-jar-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* The Glass Jar */
+.jar {
+    width: 100px;
+    height: 130px;
+    border: 4px solid #a8dadc;
+    border-radius: 15px 15px 40px 40px;
+    background: rgba(240, 253, 255, 0.6);
+    position: relative;
+    z-index: 2;
+    box-shadow: inset 0 0 20px rgba(168, 218, 220, 0.5);
+}
+.jar::before { /* Jar Lid lip */
+    content: '';
+    position: absolute;
+    top: -8px; left: 50%;
+    transform: translateX(-50%);
+    width: 70px; height: 8px;
+    background: #a8dadc;
+    border-radius: 4px;
+}
+
+.water {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: rgba(144, 224, 239, 0.5);
+    border-radius: 0 0 32px 32px;
+}
+
+/* Tulip Assembly */
+.tulip {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.stem {
+    width: 6px;
+    height: 200px;
+    background: #95d5b2;
+    border-radius: 3px;
+}
+
+.leaves {
+    position: absolute;
+    width: 24px; height: 50px;
+    background: #74c69d;
+    border-radius: 0 100px 0 100px;
+}
+.left-leaf { bottom: 80px; left: -18px; transform: rotate(-30deg); }
+.right-leaf { bottom: 110px; right: -18px; transform: rotate(40deg) scaleX(-1); }
+
+/* Glowing Blue Tulip Buds */
+.tulip-head {
+    position: absolute;
+    top: -20px;
+    width: 50px;
+    height: 65px;
+}
+
+.petal {
+    position: absolute;
+    bottom: 0;
+    border-radius: 50% 50% 30% 30% / 70% 70% 30% 30%;
+}
+
+/* Soft Ocean Gradient Blends */
+.head-1 .petal { background: linear-gradient(to top, #4ea8de, #90e0ef); }
+.head-2 .petal { background: linear-gradient(to top, #0077b6, #4ea8de); }
+.head-3 .petal { background: linear-gradient(to top, #0096c7, #ade8f4); }
+
+.p1 { width: 45px; height: 65px; left: 2.5px; z-index: 2; opacity: 0.95; }
+.p2 { width: 38px; height: 60px; left: -8px; transform: rotate(-20deg); z-index: 1; }
+.p3 { width: 38px; height: 60px; right: -8px; transform: rotate(20deg); z-index: 1; }
+
+.tall-jar .stem { height: 250px; }
+.tall-jar .tulip-head { top: -70px; }
+
+/* --- RIGHT: Openable Love Letter --- */
+.letter-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.envelope {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 170px;
+    background: #ffccd5; /* Outer pocket color */
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* The Envelope Pocket Front V-shape */
+.pocket {
+    position: absolute;
+    top: 0; left: 0; width: 0; height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-bottom: 95px solid #ffb3c1;
+    z-index: 4;
+    border-radius: 0 0 12px 12px;
+}
+.pocket::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: -130px; width: 0; height: 0;
+    border-left: 130px solid #ffafcc;
+    border-right: 130px solid #ffafcc;
+    border-top: 85px solid transparent;
+}
+
+/* Envelope Flap */
+.front-flap {
+    position: absolute;
+    top: 0; left: 0; width: 0; height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-top: 90px solid #ffb3c1;
+    transform-origin: top;
+    transition: transform 0.4s ease 0.2s, z-index 0.2s ease 0.2s;
+    z-index: 5;
+}
+
+/* Inside Hidden Love Note Card */
+.letter-card {
+    position: absolute;
+    top: 5px; left: 12px;
+    width: 236px; height: 155px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.4s ease, z-index 0.1s ease 0.2s;
+    z-index: 2;
+    overflow: hidden;
+    border: 1px solid #ffe5ec;
+}
+
+.letter-text {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* Animation triggers when container has class .open */
+.letter-container.open .front-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+    transition: transform 0.4s ease, z-index 0.2s ease;
+}
+
+.letter-container.open .letter-card {
+    transform: translateY(-90px);
+    z-index: 4;
+    height: 175px;
+    transition: transform 0.4s ease 0.3s, z-index 0.1s ease 0.3s;
+    box-shadow: 0 10px 20px rgba(255, 143, 163, 0.2);
+}
+
+.click-hint {
+    text-align: center;
+    font-size: 13px;
+    color: #ff758f;
+    margin-top: 185px;
+    animation: pulseHint 1.5s infinite alternate;
+}
+@keyframes pulseHint { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+
+/* --- Countdown Display --- */
+.countdown-box {
+    background: #fff;
+    border: 3px dashed #cde4f5;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+.countdown-box h3 { font-size: 15px; color: #6c757d; margin-bottom: 8px; }
+#countdown-timer { font-size: 26px; color: #3a7ca5; font-weight: 700; }
+
+/* --- Floating Environment (Bees & Clouds) --- */
+.bee {
+    position: absolute;
+    font-size: 24px;
+    z-index: 20;
+    pointer-events: none;
+}
+.bee-1 { animation: beeFly1 12s infinite linear; }
+.bee-2 { animation: beeFly2 16s infinite ease-in-out; }
+.bee-3 { animation: beeFly3 10s infinite linear; }
+
+.cloud {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.25;
+    z-index: 1;
+}
+.cloud-1 { top: 10%; left: 8%; animation: floatCloud 25s infinite linear; }
+.cloud-2 { top: 15%; right: 10%; animation: floatCloud 30s infinite linear reverse; }
+
+/* Bee Flight Patterns */
+@keyframes beeFly1 {
+    0% { top: 80%; left: -5%; transform: scaleX(1); }
+    40% { top: 30%; left: 45%; transform: scaleX(1); }
+    50% { top: 32%; left: 50%; transform: scaleX(-1); } /* pivot near flowers */
+    90% { top: 75%; left: 95%; transform: scaleX(-1); }
+    100% { top: 70%; left: 105%; transform: scaleX(-1); }
+}
+
+@keyframes beeFly2 {
+    0% { top: 15%; left: 105%; transform: scaleX(-1); }
+    40% { top: 55%; left: 55%; transform: scaleX(-1); }
+    60% { top: 50%; left: 40%; transform: scaleX(1); }
+    100% { top: 25%; left: -5%; transform: scaleX(1); }
+}
+
+@keyframes beeFly3 {
+    0% { top: 50%; left: 30%; transform: translateY(0); }
+    50% { top: 45%; left: 70%; transform: translateY(-20px) scale(1.2); }
+    100% { top: 50%; left: 30%; transform: translateY(0); }
+}
+
+@keyframes floatCloud {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50px); }
+}
+
+/* Responsive adjustment if screen gets small */
+@media (max-width: 950px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+/* Add these right into your existing style.css file! */
+
+/* --- WELCOME SCREEN OVERLAY --- */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #FFF9F2; /* Matches the cute cream color background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Higher than everything else */
+    cursor: pointer;
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.welcome-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.pulsing-heart {
+    font-size: 80px;
+    filter: drop-shadow(0 4px 10px rgba(255, 182, 193, 0.6));
+    animation: cuteHeartBeat 1.2s infinite ease-in-out;
+    user-select: none;
+}
+
+.welcome-text {
+    font-size: 20px;
+    color: #3a7ca5;
+    font-weight: 500;
+}
+
+.click-me-tag {
+    font-size: 13px;
+    color: #ff758f;
+    letter-spacing: 1px;
+    background: #fff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+/* --- TRANSITIONS --- */
+/* The hidden start state for your main garden content */
+.fade-out-state {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* The state triggered when heart is clicked */
+.fade-away {
+    opacity: 0;
+    transform: scale(1.1);
+    pointer-events: none;
+}
+
+.fade-in-active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* --- KEYFRAMES --- */
+@keyframes cuteHeartBeat {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.15); }
+    40% { transform: scale(1.05); }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+/* Keep all the remaining CSS rules (.main-layout, .tulip, .envelope, etc.) from the previous setup below this line! */

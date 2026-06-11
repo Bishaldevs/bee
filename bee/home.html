@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Bee 🐝💙</title>
+    <link rel="stylesheet" href="flower.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="bg-music" src="Strawberries & Cigarettes.mp3" onplay="this.currentTime = 32" loop></audio>
+    <div id="welcome-screen" onclick="enterSite()">
+        <div class="welcome-content">
+            <div class="pulsing-heart">💝</div>
+            <p class="welcome-text">A special garden for my favorite Bee...</p>
+            <span class="click-me-tag">✨ Click to open ✨</span>
+        </div>
+    </div>
+
+    <div id="main-site-content" class="fade-out-state">
+        
+        <div class="cloud cloud-1">☁️</div>
+        <div class="cloud cloud-2">☁️</div>
+        
+        <div class="bee bee-1">🐝✨</div>
+        <div class="bee bee-2">🐝🌸</div>
+        <div class="bee bee-3">✨🐝</div>
+
+        <div class="main-layout">
+            
+            <div class="left-section">
+                <div class="photobooth-strip">
+                    <div class="washi-tape"></div>
+                    <div class="photo-frame">
+                        <img src="IMG_0784.JPG" alt="Us 1" onerror="this.src='https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=400';">
+                    </div>
+                    <div class="photo-frame">
+                        <img src="IMG_0824.JPG" alt="Us 2" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400';">
+                    </div>
+                    <div class="photo-frame">
+                        <img src="IMG_0827.JPG" alt="Us 3" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400';">
+                    </div>
+                    <div class="strip-footer">
+                        <p>Hehehe</p>
+                        <span>Cutiesss</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-section">
+                <header id="main-header">
+                    <h1>In another life, I would have found you sooner. In this one, let me be your boyfriend.</h1>
+                    <a href="timespent.html" class="time-link">How long we've loved each other ⏱️</a>
+                </header>
+
+                <div class="jars-row">
+                    <div class="mason-jar-wrapper">
+                        <div class="tulip">
+                            <div class="stem"></div>
+                            <div class="leaves left-leaf"></div>
+                            <div class="leaves right-leaf"></div>
+                            <div class="tulip-head head-1">
+                                <div class="petal p1"></div>
+                                <div class="petal p2"></div>
+                                <div class="petal p3"></div>
+                            </div>
+                        </div>
+                        <div class="jar"><div class="water"></div></div>
+                    </div>
+
+                    <div class="mason-jar-wrapper tall-jar">
+                        <div class="tulip">
+                            <div class="stem"></div>
+                            <div class="leaves left-leaf"></div>
+                            <div class="leaves right-leaf"></div>
+                            <div class="tulip-head head-2">
+                                <div class="petal p1"></div>
+                                <div class="petal p2"></div>
+                                <div class="petal p3"></div>
+                            </div>
+                        </div>
+                        <div class="jar"><div class="water"></div></div>
+                    </div>
+
+                    <div class="mason-jar-wrapper">
+                        <div class="tulip">
+                            <div class="stem"></div>
+                            <div class="leaves left-leaf"></div>
+                            <div class="leaves right-leaf"></div>
+                            <div class="tulip-head head-3">
+                                <div class="petal p1"></div>
+                                <div class="petal p2"></div>
+                                <div class="petal p3"></div>
+                            </div>
+                        </div>
+                        <div class="jar"><div class="water"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="letter-container" onclick="event.stopPropagation(); this.classList.toggle('open');">
+                    <div class="envelope">
+                        <div class="front-flap"></div>
+                        <div class="pocket"></div>
+                        <div class="letter-card">
+                            <p class="letter-text">
+                                To my favorite Bee, 🐝<br><br>
+                                You make my entire world brighter. Thank you for being the sweetest, most amazing girlfriend. I love you endlessly! ❤️<br><br>
+                                — Yours only, Fucchey
+                            </p>
+                        </div>
+                    </div>
+                    <div class="click-hint">✨ Click to open letter ✨</div>
+                </div>
+
+                <div class="countdown-box">
+                    <h3>Days until your Birthday! 🎂</h3>
+                    <div id="countdown-timer">00d 00h 00m</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+       function enterSite() {
+    const welcome = document.getElementById('welcome-screen');
+    const mainContent = document.getElementById('main-site-content');
+    const music = document.getElementById('bg-music');
+    
+    // 🎵 This starts the song, and the audio tag handles skipping to 0:20 automatically
+    music.play().catch(error => {
+        console.log("Audio playback was blocked:", error);
+    });
+
+    // Run your smooth fade transitions
+    welcome.classList.add('fade-away');
+    mainContent.classList.remove('fade-out-state');
+    mainContent.classList.add('fade-in-active');
+    
+    setTimeout(() => {
+        welcome.style.display = 'none';
+    }, 800);
+}
+
+        function updateCountdown() {
+            const now = new Date();
+            let bdayYear = now.getFullYear();
+            let bdayTarget = new Date(`August 28, ${bdayYear} 00:00:00`);
+            if (now > bdayTarget) {
+                bdayTarget = new Date(`August 28, ${bdayYear + 1} 00:00:00`);
+            }
+            const diff = bdayTarget - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

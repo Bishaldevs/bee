@@ -1,0 +1,188 @@
+/* --- Base Reset & Warm Honey Aesthetics --- */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFDF0; /* Sweet milk / soft cream tone */
+    font-family: 'Fredoka', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.honey-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    z-index: 5;
+    width: 100%;
+    max-width: 650px;
+}
+
+/* --- Typography Header --- */
+.honey-header {
+    text-align: center;
+}
+
+.honey-header h1 {
+    font-size: 36px;
+    color: #D4A373; /* Smooth honey brown */
+    text-shadow: 2px 2px 0px #fff;
+    margin-bottom: 5px;
+}
+
+.honey-header p {
+    font-size: 16px;
+    color: #bfa07a;
+}
+
+/* --- The Beehive Card Structure --- */
+.beehive-box {
+    background: #FFFAEC;
+    border: 4px solid #F4A261; /* Amber outline */
+    width: 100%;
+    border-radius: 40px 40px 60px 60px; /* Tapered bottom look like an old-school hive */
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(244, 162, 97, 0.15);
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Decorative Honey Dripping Shape on top of the card */
+.honey-drip {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 15px;
+    background: #E9C46A; /* Deep Honey Gold */
+    border-radius: 0 0 10px 10px;
+}
+.honey-drip::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 15%;
+    width: 20px; height: 18px;
+    background: #E9C46A;
+    border-radius: 0 0 50% 50%;
+    box-shadow: 40px -5px 0 #E9C46A, 120px 5px 0 #E9C46A, 280px -2px 0 #E9C46A, 340px 8px 0 #E9C46A;
+}
+
+/* Anniversary Banner Layout */
+.anniversary-badge {
+    display: inline-block;
+    background: #E9C46A;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 10px rgba(233, 196, 106, 0.3);
+}
+
+/* --- Live Counter Mechanics --- */
+.counter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.counter-card {
+    background: #fff;
+    border: 2px dashed #E9C46A;
+    border-radius: 20px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease;
+}
+
+.counter-card:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+.time-num {
+    font-size: 38px;
+    font-weight: 700;
+    color: #E76F51; /* Soft warm pink-orange punch accent */
+}
+
+.time-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a0a0a0;
+    font-weight: 600;
+}
+
+.beehive-footer {
+    font-size: 14px;
+    color: #D4A373;
+    font-style: italic;
+}
+
+/* --- Back Link Action Button --- */
+.back-garden-btn {
+    font-size: 14px;
+    color: #E76F51;
+    text-decoration: none;
+    font-weight: 600;
+    background: #fff;
+    padding: 10px 22px;
+    border-radius: 30px;
+    border: 2px solid #F4A261;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.back-garden-btn:hover {
+    background: #F4A261;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* --- Atmospheric Environmental Floating Pieces --- */
+.honeycomb {
+    position: absolute;
+    color: rgba(233, 196, 106, 0.08); /* Faint ambient styling */
+    font-size: 140px;
+    pointer-events: none;
+    user-select: none;
+}
+.hc-1 { top: -20px; left: -40px; transform: rotate(15deg); }
+.hc-2 { bottom: -50px; right: -30px; transform: rotate(45deg); }
+.hc-3 { top: 40%; right: 80%; font-size: 80px; opacity: 0.5; }
+
+.float-bee {
+    position: absolute;
+    font-size: 32px;
+    top: 25%;
+    right: 12%;
+    animation: sideBuzzing 8s infinite ease-in-out;
+}
+
+@keyframes sideBuzzing {
+    0%, 100% { transform: translate(0, 0) scaleX(1); }
+    48% { transform: translate(-40px, -20px) scaleX(1); }
+    50% { transform: translate(-40px, -20px) scaleX(-1); } /* flip direction facing left */
+    98% { transform: translate(10px, 10px) scaleX(-1); }
+}
+
+/* Handle tighter phone windows gracefully */
+@media (max-width: 500px) {
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .time-num { font-size: 30px; }
+}
